@@ -1,0 +1,39 @@
+===
+Empty Document
+===
+
+@startuml
+@enduml
+
+---
+
+(source_file (document))
+
+===
+Comment
+===
+
+@startuml
+' this is a comment
+@enduml
+
+---
+
+(source_file (document
+  (comment)
+))
+
+===
+Actor
+===
+
+@startuml
+participant foo
+@enduml
+
+---
+
+(source_file (document
+  (participant (name))
+))
+
