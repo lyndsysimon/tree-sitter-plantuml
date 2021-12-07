@@ -1,5 +1,40 @@
 [
   {
+    "type": "command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "participant",
+          "named": true
+        },
+        {
+          "type": "skinparam",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "document",
     "named": true,
     "fields": {},
@@ -7,6 +42,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "command",
+          "named": true
+        },
         {
           "type": "comment",
           "named": true
@@ -104,10 +143,6 @@
   },
   {
     "type": "actor",
-    "named": false
-  },
-  {
-    "type": "as",
     "named": false
   },
   {

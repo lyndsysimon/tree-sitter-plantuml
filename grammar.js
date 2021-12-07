@@ -13,6 +13,7 @@ module.exports = grammar({
       $.comment,
       $.participant,
       $.skinparam,
+      $.command,
     ),
 
     _unquoted_string: $ => /\w+/,
@@ -27,10 +28,6 @@ module.exports = grammar({
       $._quoted_string,
     ),
     comment: $ => /'.*\n/,
-
-    keyword: $ => choice(
-      "as",
-    ),
 
     skinparam: $ => seq(
       "skinparam",
@@ -48,13 +45,21 @@ module.exports = grammar({
         "collections",
         "queue",
     ),
+
     participant: $ => seq(
       alias($._participant_keyword, $.keyword),
       $.identifier,
       optional(seq(
-        $.keyword,
+        alias("as", $.keyword),
         $.string
       )),
+    ),
+
+    command: $ => seq(
+      alias("!startsub", $.keyword),
+      $.string,
+      repeat($._statement),
+      alias("!endsub", $.keyword),
     ),
   }
 });

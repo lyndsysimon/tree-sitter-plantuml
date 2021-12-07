@@ -1,0 +1,17 @@
+===
+startsub
+===
+
+@startuml
+!startsub TEST
+!endsub
+@enduml
+
+---
+
+(source_file (document
+  (command
+    (keyword)
+    (string)
+    (keyword))
+))

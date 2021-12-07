@@ -39,6 +39,10 @@
         {
           "type": "SYMBOL",
           "name": "skinparam"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command"
         }
       ]
     },
@@ -79,15 +83,6 @@
     "comment": {
       "type": "PATTERN",
       "value": "'.*\\n"
-    },
-    "keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "as"
-        }
-      ]
     },
     "skinparam": {
       "type": "SEQ",
@@ -166,8 +161,13 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "keyword"
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "STRING",
+                    "value": "as"
+                  },
+                  "named": true,
+                  "value": "keyword"
                 },
                 {
                   "type": "SYMBOL",
@@ -179,6 +179,40 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "!startsub"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statement"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "!endsub"
+          },
+          "named": true,
+          "value": "keyword"
         }
       ]
     }
