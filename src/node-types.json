@@ -1,10 +1,5 @@
 [
   {
-    "type": "comment",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "document",
     "named": true,
     "fields": {},
@@ -19,25 +14,68 @@
         {
           "type": "participant",
           "named": true
+        },
+        {
+          "type": "skinparam",
+          "named": true
         }
       ]
     }
   },
   {
-    "type": "name",
+    "type": "identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "keyword",
     "named": true,
     "fields": {}
   },
   {
     "type": "participant",
     "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "skinparam",
+    "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "name",
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -59,8 +97,9 @@
     }
   },
   {
-    "type": "'",
-    "named": false
+    "type": "string",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "@enduml",
@@ -71,7 +110,19 @@
     "named": false
   },
   {
+    "type": "as",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "participant",
+    "named": false
+  },
+  {
+    "type": "skinparam",
     "named": false
   }
 ]

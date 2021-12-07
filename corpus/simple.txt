@@ -34,6 +34,35 @@ participant foo
 ---
 
 (source_file (document
-  (participant (name))
+  (participant (identifier))
 ))
 
+===
+Actor with alias
+===
+
+@startuml
+participant foo as "bar"
+@enduml
+
+---
+
+(source_file (document
+  (participant (identifier) (keyword) (string))
+))
+
+===
+skinparam
+===
+
+@startuml
+skinparam backgroundColor transparent
+@enduml
+
+---
+
+(source_file (document
+  (skinparam
+    (identifier)
+    (string)
+)))

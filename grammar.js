@@ -1,20 +1,47 @@
 module.exports = grammar({
   name: "plantuml",
+
   rules: {
     source_file: $ => $.document,
     document: $ => seq(
       "@startuml",
-      repeat($._command),
+      repeat($._declaration),
       "@enduml"
     ),
-    _command: $ => choice(
+
+    _declaration: $ => choice(
       $.comment,
-      $.participant
+      $.participant,
+      $.skinparam,
     ),
 
-    comment: $ => seq("'", /.*/),
+    _unquoted_string: $ => /\w+/,
+    _quoted_string: $ => /"\w+"/,
 
-    participant: $ => seq("participant", $.name),
-    name: $ => /.*/
+    identifier: $ => $._unquoted_string,
+    string: $ => choice(
+      $._unquoted_string,
+      $._quoted_string,
+    ),
+    comment: $ => /'.*\n/,
+
+    keyword: $ => choice(
+      "as",
+    ),
+
+    skinparam: $ => seq(
+      "skinparam",
+      $.identifier,
+      $.string,
+    ),
+
+    participant: $ => seq(
+      "participant",
+      field("name", $.identifier),
+      optional(seq(
+        $.keyword,
+        $.string
+      )),
+    ),
   }
 });
