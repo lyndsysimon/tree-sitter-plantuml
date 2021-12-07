@@ -1,0 +1,55 @@
+===
+Actor
+===
+
+@startuml
+participant foo
+@enduml
+
+---
+
+(source_file (document
+  (participant (keyword) (identifier))
+))
+
+===
+Actor with alia(keyword) s
+===
+
+@startuml
+participant foo as "bar"
+@enduml
+
+---
+
+(source_file (document
+  (participant (keyword) (identifier) (keyword) (string))
+))
+
+===
+Exhaustive
+===
+
+@startuml
+participant foo as "bar"
+actor myActor as baz
+boundary another
+control "something else"
+entity "Huh!?"
+database db
+collections coll
+queue q
+@enduml
+
+---
+
+(source_file (document
+  (participant (keyword) (identifier) (keyword) (string))
+  (participant (keyword) (identifier) (keyword) (string))
+  (participant (keyword) (identifier))
+  (participant (keyword) (identifier))
+  (participant (keyword) (identifier))
+  (participant (keyword) (identifier))
+  (participant (keyword) (identifier))
+  (participant (keyword) (identifier))
+))

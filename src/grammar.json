@@ -16,7 +16,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_declaration"
+            "name": "_statement"
           }
         },
         {
@@ -25,7 +25,7 @@
         }
       ]
     },
-    "_declaration": {
+    "_statement": {
       "type": "CHOICE",
       "members": [
         {
@@ -48,11 +48,20 @@
     },
     "_quoted_string": {
       "type": "PATTERN",
-      "value": "\"\\w+\""
+      "value": "\"[\\w\\!\\?\\s]+\""
     },
     "identifier": {
-      "type": "SYMBOL",
-      "name": "_unquoted_string"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_unquoted_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_quoted_string"
+        }
+      ]
     },
     "string": {
       "type": "CHOICE",
@@ -97,20 +106,58 @@
         }
       ]
     },
-    "participant": {
-      "type": "SEQ",
+    "_participant_keyword": {
+      "type": "CHOICE",
       "members": [
         {
           "type": "STRING",
           "value": "participant"
         },
         {
-          "type": "FIELD",
-          "name": "name",
+          "type": "STRING",
+          "value": "actor"
+        },
+        {
+          "type": "STRING",
+          "value": "boundary"
+        },
+        {
+          "type": "STRING",
+          "value": "control"
+        },
+        {
+          "type": "STRING",
+          "value": "entity"
+        },
+        {
+          "type": "STRING",
+          "value": "database"
+        },
+        {
+          "type": "STRING",
+          "value": "collections"
+        },
+        {
+          "type": "STRING",
+          "value": "queue"
+        }
+      ]
+    },
+    "participant": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "identifier"
-          }
+            "name": "_participant_keyword"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         },
         {
           "type": "CHOICE",

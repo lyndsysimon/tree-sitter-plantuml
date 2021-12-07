@@ -35,22 +35,15 @@
   {
     "type": "participant",
     "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
         {
           "type": "keyword",
           "named": true
@@ -110,7 +103,19 @@
     "named": false
   },
   {
+    "type": "actor",
+    "named": false
+  },
+  {
     "type": "as",
+    "named": false
+  },
+  {
+    "type": "boundary",
+    "named": false
+  },
+  {
+    "type": "collections",
     "named": false
   },
   {
@@ -118,7 +123,23 @@
     "named": true
   },
   {
+    "type": "control",
+    "named": false
+  },
+  {
+    "type": "database",
+    "named": false
+  },
+  {
+    "type": "entity",
+    "named": false
+  },
+  {
     "type": "participant",
+    "named": false
+  },
+  {
+    "type": "queue",
     "named": false
   },
   {
