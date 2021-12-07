@@ -42,7 +42,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "command"
+          "name": "_command"
         }
       ]
     },
@@ -182,7 +182,16 @@
         }
       ]
     },
-    "command": {
+    "_command": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "subpart"
+        }
+      ]
+    },
+    "subpart": {
       "type": "SEQ",
       "members": [
         {
@@ -196,7 +205,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "string"
+          "name": "identifier"
         },
         {
           "type": "REPEAT",

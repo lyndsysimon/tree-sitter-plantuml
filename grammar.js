@@ -13,7 +13,7 @@ module.exports = grammar({
       $.comment,
       $.participant,
       $.skinparam,
-      $.command,
+      $._command,
     ),
 
     _unquoted_string: $ => /\w+/,
@@ -55,9 +55,12 @@ module.exports = grammar({
       )),
     ),
 
-    command: $ => seq(
+    _command: $ => choice(
+      $.subpart,
+    ),
+    subpart: $ => seq(
       alias("!startsub", $.keyword),
-      $.string,
+      $.identifier,
       repeat($._statement),
       alias("!endsub", $.keyword),
     ),

@@ -10,8 +10,30 @@ startsub
 ---
 
 (source_file (document
-  (command
+  (subpart
     (keyword)
-    (string)
+    (identifier)
+    (keyword))
+))
+
+===
+startsub with children
+===
+
+@startuml
+!startsub TEST
+actor foo
+!endsub
+@enduml
+
+---
+
+(source_file (document
+  (subpart
+    (keyword)
+    (identifier)
+    (participant
+      (keyword)
+      (identifier))
     (keyword))
 ))

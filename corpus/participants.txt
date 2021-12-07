@@ -13,7 +13,7 @@ participant foo
 ))
 
 ===
-Actor with alia(keyword) s
+Actor with alias
 ===
 
 @startuml

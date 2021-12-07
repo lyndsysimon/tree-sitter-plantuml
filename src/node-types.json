@@ -1,40 +1,5 @@
 [
   {
-    "type": "command",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "command",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "keyword",
-          "named": true
-        },
-        {
-          "type": "participant",
-          "named": true
-        },
-        {
-          "type": "skinparam",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "document",
     "named": true,
     "fields": {},
@@ -43,10 +8,6 @@
       "required": false,
       "types": [
         {
-          "type": "command",
-          "named": true
-        },
-        {
           "type": "comment",
           "named": true
         },
@@ -56,6 +17,10 @@
         },
         {
           "type": "skinparam",
+          "named": true
+        },
+        {
+          "type": "subpart",
           "named": true
         }
       ]
@@ -132,6 +97,41 @@
     "type": "string",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "subpart",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "participant",
+          "named": true
+        },
+        {
+          "type": "skinparam",
+          "named": true
+        },
+        {
+          "type": "subpart",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "@enduml",
