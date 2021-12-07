@@ -1,0 +1,17 @@
+{
+  "name": "tree-sitter-plantuml",
+  "version": "0.0.1",
+  "description": "A tree-sitter parser for plantuml",
+  "main": "grammar.js",
+  "scripts": {
+    "test": "tree-sitter test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.1"
+  }
+}
